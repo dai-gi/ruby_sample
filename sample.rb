@@ -1,14 +1,16 @@
 def record(point, comment)
   post = "ポイント: #{point} コメント: #{comment}"
-  file = File.open("data.txt", "a")
-  file.puts(post)
-  file.close
+  File.open("data.txt", "a") do |file|
+    file.puts(post)
+  end
 end
 
 def history
-  read_file = File.open("data.txt", "r")
-  puts read_file.read
-  read_file.close
+  File.open("data.txt", "r") do |file|
+    file.each_line do |each_line|
+      puts each_line
+    end
+  end
 end
 
 while true
@@ -20,7 +22,7 @@ while true
   num = gets.to_i
   case num
   when 1
-    puts "1から5の数字で評価を入力してください。終了する場合は「6」を入力してください"
+    puts "1から5の数字で評価を入力してください"
     point = gets.to_i
     if point <= 0 || point > 5
       puts "1から5を入力してください"
