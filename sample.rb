@@ -22,9 +22,13 @@ while true
   when 1
     puts "1から5の数字で評価を入力してください。終了する場合は「6」を入力してください"
     point = gets.to_i
-    puts "コメントを入力してください"
-    comment = gets
-    record(point, comment)
+    if point <= 0 || point > 5
+      puts "1から5を入力してください"
+    else
+      puts "コメントを入力してください"
+      comment = gets
+      record(point, comment)
+    end
   when 2
     puts "これまでの結果"
     history()
