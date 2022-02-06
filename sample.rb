@@ -12,6 +12,7 @@ def history
 end
 
 while true
+  puts "実施したい処理を選択してください"
   puts "1:評価ポイントとコメントを入力する"
   puts "2:今までの結果を確認する"
   puts "3:終了する"
