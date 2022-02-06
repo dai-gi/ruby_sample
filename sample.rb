@@ -36,6 +36,6 @@ while true
     puts "終了します"
     break
   else
-    puts "数字を入力してください"
+    puts "1から3で入力してください"
   end
 end
