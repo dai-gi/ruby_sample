@@ -11,9 +11,13 @@ while true
   elsif point != 0
     puts "コメントを入力してください"
     comment = gets
-    post = {point: point, comment: comment}
-    posts.push(post)
-    puts posts
+    post = "ポイント: #{point} コメント: #{comment}"
+    file = File.open("data.txt", "a")
+    file.puts(post)
+    file.close
+    read_file = File.open("data.txt", "r")
+    puts read_file.read
+    read_file.close
   else
     puts "数字を入力してください"
   end
