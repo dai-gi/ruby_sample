@@ -37,3 +37,13 @@ class Customer
     # @basket を買い物かごとして使用する
     shopping_list(@basket)
   end
+
+# 商品リストの作成（オブジェクト）----------------
+groceries = []     # 商品リストの入れ物を配列として用意する。
+# それぞれの商品をインスタンス化して、商品配列に保存する。
+groceries = Grocery.new("バナナ", 300),
+            Grocery.new("パン", 150),
+            Grocery.new("牛乳", 230),
+            Grocery.new("卵", 280),
+            Grocery.new("肉", 800),
+            Grocery.new("魚", 500)
