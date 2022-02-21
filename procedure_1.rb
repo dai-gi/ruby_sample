@@ -37,6 +37,25 @@ class Customer
     # @basket を買い物かごとして使用する
     shopping_list(@basket)
   end
+end
+
+# 販売者クラスの設定
+class Seller
+  attr_accessor :name, :shop, :address
+
+  def initialize(name, shop)
+    @name = name
+    @shop = shop  # 店の名前を取り込む
+    @orders = []  # 購入者ごとの購入内容を記録するいれもの
+  end
+
+  def orders(arg)
+    # 購入者の購入内容を引数（arg）で受け取り、複数の購入者情報を@ordersに保存する
+  end
+  def orderling_list
+    # 購入者の購入内容に基づいて、購入者ごとの注文リストを表示する
+  end
+end
 
 # 商品リストの作成（オブジェクト）----------------
 groceries = []     # 商品リストの入れ物を配列として用意する。
