@@ -8,6 +8,17 @@ class Grocery
 end
 
 
+# ユーザクラスの設定
+class User
+  attr_accessor :name, :address
+
+  def initialize(arg1, arg2=nil, arg3=nil)
+    @bname = arg1
+    @address = arg2
+  end
+end
+
+
 # 購入者クラスの設定
 class Customer
   attr_accessor :name, :address
