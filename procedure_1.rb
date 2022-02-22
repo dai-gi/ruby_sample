@@ -20,12 +20,11 @@ end
 
 
 # 購入者クラスの設定
-class Customer
+class Customer < User
   attr_accessor :name, :address
 
   def initialize(name, address)
-    @name = name
-    @address = address
+    super
     @basket = [] # 空の買い物かごを用意する
   end
 
@@ -51,11 +50,11 @@ class Customer
 end
 
 # 販売者クラスの設定
-class Seller
+class Seller < User
   attr_accessor :name, :shop, :address
 
   def initialize(name, shop)
-    @name = name
+    super
     @shop = shop  # 店の名前を取り込む
     @orders = []  # 購入者ごとの購入内容を記録するいれもの
   end
