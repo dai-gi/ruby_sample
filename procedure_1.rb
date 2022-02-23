@@ -61,9 +61,11 @@ class Seller < User
     @orders = []  # 購入者ごとの購入内容を記録するいれもの
   end
 
-  def orders(arg)
-    # 購入者の購入内容を引数（arg）で受け取り、複数の購入者情報を@ordersに保存する
+  def orders(order)
+    # 購入者の購入内容を引数（order）で受け取り、複数の購入者情報を@ordersに保存する
+    @orders << order
   end
+
   def orderling_list
     # 購入者の購入内容に基づいて、購入者ごとの注文リストを表示する
   end
