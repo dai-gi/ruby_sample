@@ -46,6 +46,8 @@ class Customer < User
     end
     # @basket を買い物かごとして使用する
     shopping_list(@basket)
+    # shopping_listの中で@sumが計算される
+    @order = [name, @sum, Time.now]
   end
 end
 
