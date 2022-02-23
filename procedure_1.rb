@@ -78,6 +78,32 @@ class Customer < User
     # shopping_listの中で@sumが計算される
     @order = [name, @sum, Time.now]
   end
+
+
+  # 以下はプライベートメソッド
+  private
+  def grocery_list(groceries)
+    puts "------食料品リスト------"
+    groceries.each_with_index do |grocery, i|
+      puts "#{i}: #{grocery.name}, #{grocery.price}"
+    end
+  end
+
+  def entry(grocery, quantity)
+    @basket << [grocery, quantity]
+  end
+
+  def shopping_list(basket)
+    @sum = 0
+    puts "=====　買い物リスト(#{name}/#{address})　====="
+    basket.each do |grocery, quantity|
+      money = grocery.price * quantity
+      puts "商品名: #{grocery.name}, 数量: #{quantity}, 金額：#{money}"
+      @sum += money
+    end
+    puts "----------合計：#{@sum}-------------"
+    puts "===================================="
+  end
 end
 
 
