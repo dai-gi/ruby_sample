@@ -19,6 +19,35 @@ class User
 end
 
 
+# 販売者クラスの設定
+class Seller < User
+  attr_accessor :name, :shop, :address
+
+  def initialize(name, shop)
+    super
+    @shop = shop  # 店の名前を取り込む
+    @orders = []  # 購入者ごとの購入内容を記録するいれもの
+  end
+
+  def orders(order)
+    # 購入者の購入内容を引数（order）で受け取り、複数の購入者情報を@ordersに保存する
+    @orders << order
+  end
+
+  def orderling_list
+    # 購入者の購入内容に基づいて、購入者ごとの注文リストを表示する
+    @sum = 0
+    puts "=====　顧客別注文リスト(#{name}, #{shop})　====="
+    @orders.each do |order|
+      puts "顧客名: #{order[0]}, 金額: #{order[1]}, 日時：#{order[2].strftime("%Y-%m-%d")}}"
+      @sum += order[1]
+    end
+    puts "--------------合計：#{@sum}"
+    puts "===================================="
+  end
+end
+
+
 # 購入者クラスの設定
 class Customer < User
   attr_accessor :name, :address
@@ -51,25 +80,6 @@ class Customer < User
   end
 end
 
-# 販売者クラスの設定
-class Seller < User
-  attr_accessor :name, :shop, :address
-
-  def initialize(name, shop)
-    super
-    @shop = shop  # 店の名前を取り込む
-    @orders = []  # 購入者ごとの購入内容を記録するいれもの
-  end
-
-  def orders(order)
-    # 購入者の購入内容を引数（order）で受け取り、複数の購入者情報を@ordersに保存する
-    @orders << order
-  end
-
-  def orderling_list
-    # 購入者の購入内容に基づいて、購入者ごとの注文リストを表示する
-  end
-end
 
 # 商品リストの作成（オブジェクト）----------------
 groceries = []     # 商品リストの入れ物を配列として用意する。
